@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>{{ name }}</h1>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+<div><span style="font-style: bold; font: 11pt">Проект:</span> {{ project.name }}</div>
+<div><span style="font-style: bold; font: 11pt">Исполнитель:</span> {{ username }}</div>
+<div><span style="font-style: bold; font: 11pt">Срок:</span> {{ due }}</div>
+<div><span style="font-style: bold; font: 11pt">Статус:</span> {{ status }}</div>
+<p></p>
+<div>{{ desc }}</div>
+
+{% endblock %}

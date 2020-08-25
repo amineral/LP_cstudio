@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Новая задача</h1>
+
+<form action="{{ url_for('process_create_task', project_id=project_id, list_id=list_id)  }}" method="post">
+
+    <p>{{ form.hidden_tag() }}</p>
+
+   <p> Название задачи</p>
+    {{ form.name }}<br>
+<p></p>
+    <p>Описание задачи</p>
+    {{ form.desc }}<br>
+<p></p>
+   <p>Срок</p>
+    {{ form.due_date }}<br>
+<p></p>
+    <p>Исполнитель</p>
+    {{ form.user_id }}<br>
+<p></p>
+    {{ form.submit() }}
+</form>
+
+{% endblock %}

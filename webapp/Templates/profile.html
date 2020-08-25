@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>{{ user.username }}</h1>
+    {% if user.email %}
+        <h4>email: {{ user.email }}</h4>
+    {% else %}
+    <h4>
+        email не указан<br>
+    </h4>
+    {% endif %}
+    {% if user.first_name and user.second_name %}
+        <h4>Имя: {{ user.first_name }} {{ user.second_name }}</h4>
+    {% elif user.first_name %}
+        <h4> Имя: {{ user.first_name }} </h4><br>
+    {% else %}
+        <h4>Имя не указано</h4>
+    {% endif %}
+    <p>
+        <a href="{{ url_for('profile_settings') }}">Настройки профиля</a>
+    </p>
+
+{% endblock %}

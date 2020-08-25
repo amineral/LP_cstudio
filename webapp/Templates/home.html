@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Привет, {{ current_user.username }}. </h1>
+<p>Статус: {{ current_user.role }}</p>
+<p></p>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Мои статьи</h2>
+        <p></p>
+        {% for article in articles %}
+            <p><a href="{{ url_for('show_article', article_id=article.id) }}">{{ article.title }}</a></p>
+        {% endfor %}
+        <p><a href="{{ url_for('process_create_article') }}">Новая статья</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Мои проекты</h2>
+        <p></p>
+        {% for project in projects %}
+            <p><a href="{{ url_for('show_project', project_id=project.id) }}">{{ project.name }}</a></p>
+        {% endfor %}
+        {% if current_user.role is equalto("admin") %}
+            <p><a href="{{ url_for('process_create_project') }}">Новый проект</a></p>
+        {% endif %}
+    </div>
+    <div class="col-md-4">
+        <h2>Мои задачи</h2>
+        <p></p>
+        {% for task in tasks %}
+            <p><a href="{{ url_for('show_task', task_id=task.id) }}">{{ task.name }}</a></p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

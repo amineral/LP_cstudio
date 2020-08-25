@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid">
+<h1>Новый проект</h1>
+
+<form action="{{ url_for('process_create_project')  }}" method="post">
+
+    <p>{{  form.hidden_tag() }}</p>
+
+    <p>Введите название проекта</p>
+    {{ form.name }}<br>
+     {% for error in form.name.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+<p>
+    <p>Введите описание проекта</p>
+    {{ form.description }}<br>
+</p>
+<p>
+    <p>Добавьте участника</p>
+    {{ form.user }}<br>
+</p>
+<p>{{ form.submit() }}</p>
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+{% if user.email %}
+    <h4>email: {{ user.email }}</h4>
+    <form method="post">
+        <td><input type='submit' value='Изменить email'></td>
+        <td><input type='text' name='new_email'></td>
+    </form>
+{% else %}
+    <h4>  email не указан<br></h4>
+    <form method="post">
+        <td><input type='submit' value='Указать email'></td>
+        <td><input type='text' name='new_email'></td>
+    </form>
+{% endif %}
+
+{% if user.first_name %}
+    <h4>Имя: {{ user.first_name }}</h4>
+    <form method="post">
+        <td><input type='submit' value='Изменить имя'></td>
+        <td><input type='text' name='new_first_name'></td>
+    </form>
+{% else %}
+    <h4>Имя не указано<br></h4>
+    <form method="post">
+        <td><input type='submit' value='Указать имя'></td>
+        <td><input type='text' name='new_first_name'></td>
+    </form>
+{% endif %}
+
+{% if user.second_name %}
+    <h4>Фамилия: {{ user.second_name }}</h4>
+    <form method="post">
+        <td><input type='submit' value='Изменить фамилию'></td>
+        <td><input type='text' name='new_second_name'></td>
+    </form>
+{% else %}
+    <h4>Фамилия не указана<br></h4>
+    <form method="post">
+        <td><input type='submit' value='Указать фамилию'></td>
+        <td><input type='text' name='new_second_name'></td>
+    </form>
+{% endif %}
+
+{% if user.third_name %}
+    <h4>Отчество: {{ user.third_name }}</h4>
+    <form method="post">
+        <td><input type='submit' value='Изменить отчество'></td>
+        <td><input type='text' name='new_third_name'></td>
+    </form>
+{% else %}
+    <h4>Отчество не указано<br></h4>
+    <form method="post">
+        <td><input type='submit' value='Указать отчество'></td>
+        <td><input type='text' name='new_third_name'></td>
+    </form>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>{{ article.title }}</h1>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+<div style="font-style: italic; font: 11pt">Автор: {{ article.author }}</div>
+<div style="font-style: italic; font: 11pt">Дата: {{ article.created_date.strftime("%d.%m.%Y") }}</div>
+<p></p>
+<div>{{ article.text }}</div>
+
+{% endblock %}

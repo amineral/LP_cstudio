@@ -1,0 +1,25 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Авторизация</h1>
+
+<form action="{{ url_for('process_login')  }}" method="post">
+    <p>{{  form.hidden_tag() }}</p>
+<p>
+    Логин<br>
+    {{ form.username(size=30) }}<br>
+</p>
+<p>
+    Пароль<br>
+    {{ form.password(size=30) }}<br>
+</p>
+<p>
+    {{ form.remember_me }} Запомнить <br>
+</p>
+<p>{{ form.submit() }}</p>
+</form>
+
+{% endblock %}
+

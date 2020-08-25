@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Удалить проект</h1>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+<form action="{{ url_for('process_delete_project')  }}" method="post">
+
+    <p>{{  form.hidden_tag() }}</p>
+
+    <p>Введите ID проекта</p>
+    {{ form.project_id }}<br>
+     {% for error in form.project_id.errors %}
+     <span style="color: red;">[{{ error }}]</span>
+     {% endfor %}
+
+
+<p>{{ form.submit() }}</p>
+</form>
+
+{% endblock %}
